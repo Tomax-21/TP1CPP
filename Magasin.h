@@ -15,7 +15,10 @@ private:
 public:
 	Magasin();
 
+	std::vector<Product> products() const;
+
 	void addNewProduct(Product const& product);
 
 };
 
+std::ostream& operator<<(std::ostream& os, std::vector<Product> const& produit);
