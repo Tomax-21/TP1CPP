@@ -15,5 +15,7 @@ private:
 public:
 	Magasin();
 
+	void addNewProduct(Product const& product);
+
 };
 
