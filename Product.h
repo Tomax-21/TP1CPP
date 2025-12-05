@@ -15,6 +15,7 @@ private:
 
 public:
 	Product(std::string const& title, std::string const& description, int const& quantity, float const& unit_price);
-
+	
+	friend std::ostream& operator<<(std::ostream& os, const Product& product);
 };
 
