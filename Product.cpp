@@ -1,7 +1,9 @@
 #include "Product.h"
 
+
+
 Product::Product(std::string const& title, std::string const& description, int const& quantity, float const& unit_price):
-	title_(title), description_(description), quantity_(quantity), unit_price_(unit_price)
+	id_(generate_random_product_id()), title_(title), description_(description), quantity_(quantity), unit_price_(unit_price)
 {
 	if (quantity < 0) {
 		throw std::invalid_argument("La quantité doit etre une valeur positive ou nulle");
@@ -17,6 +19,11 @@ void Product::setQuantity(int const& quantity)
 		throw std::invalid_argument("La quantité doit etre positive ou nulle");
 	}
 	quantity_ = quantity;
+}
+
+long int Product::id() const
+{
+	return id_;
 }
 
 std::string Product::title() const
@@ -43,4 +50,14 @@ std::ostream& operator<<(std::ostream& os, const Product& product)
 {
 	os << product.title_ << " : " << product.description_ << std::endl << "Quantity : " << product.quantity_ << std::endl << "Unit Price : " << product.unit_price_ << "€" << std::endl;
 	return os;
+}
+
+#include <random>
+
+unsigned int generate_random_product_id()
+{
+	std::random_device rd;  
+	std::mt19937 gen(rd()); 
+	std::uniform_int_distribution<> dist(1, 1000000);
+	return dist(gen);
 }
