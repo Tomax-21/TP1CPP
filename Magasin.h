@@ -16,13 +16,9 @@ public:
 	Magasin();
 
 	std::vector<Product> products() const;
-
-	void addNewProduct(Product& product);
-
-
 	Product& getProductByName(std::string const& product_name);
 
-	
+	void addNewProduct(Product const& product);
 
 };
 
