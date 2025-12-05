@@ -21,6 +21,11 @@ void Product::setQuantity(int const& quantity)
 	quantity_ = quantity;
 }
 
+bool Product::operator==(Product& product) const
+{
+	return (id_ == product.id());
+}
+
 long int Product::id() const
 {
 	return id_;

@@ -25,6 +25,9 @@ public:
 	void setQuantity(int const& quantity);
 	
 	friend std::ostream& operator<<(std::ostream& os, const Product& product);
+
+
+	bool operator==(Product& product)const;
 };
 
 unsigned int generate_random_product_id();

@@ -22,3 +22,21 @@ void Client::emptyPanier()
 {
 	panier_.clear();
 }
+
+void Client::setProductQuantityByName(std::string const& product_name, int const& quantity)
+{
+	for (Product& product : panier_) {
+		if (product.title() == product_name) {
+			product.setQuantity(quantity);
+		}
+	}
+}
+
+void Client::removeProductFromPanier(std::string product_name)
+{
+	for (auto it = panier_.begin(); it != panier_.end(); ++it) {
+		if (it->title() == product_name) {
+			panier_.erase(it);
+		}
+	}
+}
