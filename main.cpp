@@ -14,14 +14,27 @@ int main() {
 
 	
 	magasin.addNewProduct(produit1);
-	magasin.addNewProduct(produit2);
+	//magasin.addNewProduct(produit2);
 
-	try {	
-		std::cout << "Produit trouvé : " << magasin.getProductByName("PS5") << std::endl;
-	}
-	catch (const std::runtime_error& e) {
-		std::cout << "Erreur : " << e.what() << std::endl;
-	}
+	
+	std::cout << magasin.products() << std::endl;
+	Product& produit = magasin.getProductByName("PS4");
+
+	produit.setQuantity(1);
+	std::cout << magasin.products();
+
+
+
+	//try {	
+	//	Product& produit = magasin.getProductByName("PS4");
+	//	updateProductQuantityByName(magasin, "PS4", 1);
+	//}
+	//catch (const std::runtime_error& e) {
+	//	std::cout << "Erreur : " << e.what() << std::endl;
+	//}
+
+	//std::cout << magasin.products() << std::endl;
+
 
 	return 0;
 }

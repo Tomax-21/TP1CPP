@@ -17,13 +17,16 @@ public:
 
 	std::vector<Product> products() const;
 
-	void addNewProduct(Product const& product);
+	void addNewProduct(Product& product);
 
 
-	Product getProductByName(std::string const& product_name) const;
+	Product& getProductByName(std::string const& product_name);
+
+	
 
 };
 
 
+void updateProductQuantityByName(Magasin& magasin, std::string const& product_name, int const& quantity);
 
 std::ostream& operator<<(std::ostream& os, std::vector<Product> const& produit);

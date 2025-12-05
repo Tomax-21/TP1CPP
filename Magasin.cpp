@@ -10,14 +10,14 @@ std::vector<Product> Magasin::products() const
 	return products_;
 }
 
-void Magasin::addNewProduct(Product const& product)
+void Magasin::addNewProduct(Product& product)
 {
 	products_.push_back(product);
 }
 
-Product Magasin::getProductByName(std::string const& product_name) const
+Product& Magasin::getProductByName(std::string const& product_name)
 {
-	for (Product product : products_) {
+	for (Product& product : products_) {
 		if (product.title() == product_name) {
 			return product;
 		}
@@ -25,11 +25,41 @@ Product Magasin::getProductByName(std::string const& product_name) const
 	throw std::runtime_error("Produit non trouvé : " + product_name);
 }
 
-std::ostream& operator<<(std::ostream& os, std::vector<Product> const& produits)
+
+
+
+
+void updateProductQuantityByName(Magasin& magasin, std::string const& product_name, int const& quantity)
 {
-	for (Product produit : produits) {
-		os << produit << std::endl << "#######" << std::endl;
+	// return true si le produit existe, false sinon
+	try {
+		Product& product = magasin.getProductByName(product_name);
+		product.setQuantity(quantity);
 	}
+	catch (std::runtime_error& e) {
+		throw std::runtime_error("Produit non trouvé : " + product_name);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+std::ostream& operator<<(std::ostream& os, std::vector<Product> const& products)
+{
+	os << "Affichage de la liste des produits du magasin : " << std::endl;
+
+	for (Product product : products) {
+		os << std::endl << product  << std::endl;
+	}
+
+	os << "############" << std::endl;
 
 	return os;
 }
