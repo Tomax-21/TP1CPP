@@ -16,12 +16,12 @@ int main() {
 	magasin.addNewProduct(produit1);
 	magasin.addNewProduct(produit2);
 
-
-
-	std::cout << magasin.products();
-
-	std::cout << produit1.id() << std::endl;
-	std::cout << produit2.id() << std::endl;
+	try {	
+		std::cout << "Produit trouvé : " << magasin.getProductByName("PS5") << std::endl;
+	}
+	catch (const std::runtime_error& e) {
+		std::cout << "Erreur : " << e.what() << std::endl;
+	}
 
 	return 0;
 }

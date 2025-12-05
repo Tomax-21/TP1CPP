@@ -19,6 +19,11 @@ public:
 
 	void addNewProduct(Product const& product);
 
+
+	Product getProductByName(std::string const& product_name) const;
+
 };
+
+
 
 std::ostream& operator<<(std::ostream& os, std::vector<Product> const& produit);
