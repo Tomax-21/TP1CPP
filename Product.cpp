@@ -21,7 +21,7 @@ void Product::setQuantity(int const& quantity)
 	quantity_ = quantity;
 }
 
-bool Product::operator==(Product& product) const
+bool Product::operator==(Product const& product) const
 {
 	return (id_ == product.id());
 }

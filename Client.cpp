@@ -1,5 +1,17 @@
 #include "Client.h"
 
+std::ostream& operator<<(std::ostream& os, const Client& client)
+{
+	os << "Nom : " << client.nom_ << " Prenom : " << client.prenom_ << std::endl;
+	for (Product produit : client.panier_) {
+		os << produit << std::endl;
+
+	}
+	os << std::endl;
+
+	return os;
+}
+
 unsigned int generate_random_client_id()
 {
 	std::random_device rd;
@@ -32,11 +44,13 @@ void Client::setProductQuantityByName(std::string const& product_name, int const
 	}
 }
 
+
 void Client::removeProductFromPanier(std::string product_name)
 {
 	for (auto it = panier_.begin(); it != panier_.end(); ++it) {
 		if (it->title() == product_name) {
 			panier_.erase(it);
+			return;
 		}
 	}
 }

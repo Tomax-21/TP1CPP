@@ -17,11 +17,22 @@ int main() {
 	//magasin.addNewProduct(produit2);
 
 	
-	std::cout << magasin.products() << std::endl;
-	Product& produit = magasin.getProductByName("PS4");
+	//std::cout << magasin.products() << std::endl;
+	//Product& produit = magasin.getProductByName("PS4");
 
-	produit.setQuantity(1);
-	std::cout << magasin.products();
+	//produit.setQuantity(1);
+	//std::cout << magasin.products();
+
+
+	Client thomas = Client("MILLET", "Thomas");
+	thomas.addProductToPanier(produit1);
+	thomas.addProductToPanier(produit2);
+
+	std::cout << thomas;
+
+	thomas.removeProductFromPanier("PS4");
+
+	std::cout << thomas;
 
 
 

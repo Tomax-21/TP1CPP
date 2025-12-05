@@ -4,6 +4,8 @@
 #include <vector>
 
 #include "Product.h"
+#include <iostream>
+
 class Client
 {
 private:
@@ -22,7 +24,10 @@ public:
 	void setProductQuantityByName(std::string const& product_name, int const& quantity);
 
 	void removeProductFromPanier(std::string product_name);
-	void removeProductFromPanier(Product const& product);
+
+	friend std::ostream&operator << (std::ostream & os, const Client & client);
+
+
 };
 
 unsigned int generate_random_client_id();
