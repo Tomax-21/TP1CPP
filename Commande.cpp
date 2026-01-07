@@ -32,7 +32,7 @@ void Commande::setStatut(const CommandeStatut& statut)
 
 void Commande::addProduct(const Product& product)
 {
-    produits_.push_back(product)
+    produits_.push_back(product);
 }
 
 Client Commande::client()

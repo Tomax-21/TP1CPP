@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Magasin.h"
-
+#include "hud.h"
 int main() {
 
 	srand((unsigned int)time(0));
@@ -8,25 +8,27 @@ int main() {
 
 	Magasin magasin = Magasin();
 
-	Product produit1 = Product("PS4", "Console de jeu de la marque Sony", 5, 124.4);
-	Product produit2 = Product("PS5", "Console de jeu de la marque Sony", 2, 1024.4);
+	hud(magasin);
+
+	//Product produit1 = Product("PS4", "Console de jeu de la marque Sony", 5, 124.4);
+	//Product produit2 = Product("PS5", "Console de jeu de la marque Sony", 2, 1024.4);
 
 	
-	magasin.addNewProduct(produit1);
-	magasin.addNewProduct(produit2);
+	//magasin.addNewProduct(produit1);
+	//magasin.addNewProduct(produit2);
 
 	//produit1.setQuantity(12);
 	
 	//std::cout << magasin.products() << std::endl;
 
 
-	Product& produit = magasin.getProductByName("PS4");
+	//Product& produit = magasin.getProductByName("PS4");
 
-	produit.setQuantity(1);
+	//produit.setQuantity(1);
 	//std::cout << magasin.products();
 
 
-	Client thomas = Client("Thomas", "MILLET");
+	//Client thomas = Client("Thomas", "MILLET");
 	//thomas.addProductToPanier(produit1);
 	//thomas.addProductToPanier(produit2);
 
@@ -37,14 +39,14 @@ int main() {
 	//std::cout << thomas;
 
 
-	magasin.addNewClient(thomas);
+	//magasin.addNewClient(thomas);
 
 
-	Commande commande1 = Commande(thomas, CommandeStatut::NON_LIVRE);
+	//Commande commande1 = Commande(thomas, CommandeStatut::NON_LIVRE);
 
-	magasin.addNewOrder(commande1);
+	//magasin.addNewOrder(commande1);
 
-	magasin.valideOrderById(commande1.id());
+	//magasin.valideOrderById(commande1.id());
 
 
 	//int thomas_id = thomas.getId();

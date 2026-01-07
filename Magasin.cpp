@@ -103,7 +103,7 @@ void add_product_to_commande(Magasin& magasin, const unsigned int commande_id, s
 	Product& product = magasin.getProductByName(product_name);
 	Commande& commande = magasin.getCommandeById(commande_id);
 
-	commande.addProduct(product)
+	commande.addProduct(product);
 
 }
 
@@ -167,7 +167,11 @@ void change_product_quantity_to_client(Magasin& magasin, std::string const& prod
 
 
 
-
+void show_commande(Magasin& magasin) {
+	for (Commande& commande : magasin.getCommandes()) {
+		std::cout << commande << std::endl;
+	}
+}
 
 
 void show_clients(Magasin& magasin)
@@ -231,6 +235,31 @@ std::ostream& operator<<(std::ostream& os, std::vector<Product> const& products)
 
 	for (Product product : products) {
 		os << std::endl << product  << std::endl;
+	}
+
+	os << "############" << std::endl;
+
+	return os;
+}
+
+std::ostream& operator<<(std::ostream& os, std::vector<Client> const& clients)
+{
+	os << "Affichage de la liste des clients du magasin : " << std::endl;
+
+	for (Client client : clients) {
+		os << std::endl << client << std::endl;
+	}
+
+	os << "############" << std::endl;
+
+	return os;
+}
+std::ostream& operator<<(std::ostream& os, std::vector<Commande> const& commandes)
+{
+	os << "Affichage de la liste des commandes du magasin : " << std::endl;
+
+	for (Commande commande : commandes) {
+		os << std::endl << commande << std::endl;
 	}
 
 	os << "############" << std::endl;

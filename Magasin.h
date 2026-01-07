@@ -49,7 +49,6 @@ void remove_product_to_client(Magasin& magasin, std::string const& product_name,
 void change_product_quantity_to_client(Magasin& magasin, std::string const& product_name, const std::string& client_name, const int& quantity);
 void change_product_quantity_to_client(Magasin& magasin, std::string const& product_name, const int& client_id, const int& quantity);
 
-void show_clients(Magasin& magasin);
 
 void updateProductQuantityByName(Magasin& magasin, std::string const& product_name, int const& quantity);
 
@@ -58,3 +57,8 @@ std::vector<Commande> getCommandeLivre(Magasin& magasin);
 std::vector<Commande> getCommandeFromClient(Magasin& magasin, const Client& client);
 
 std::ostream& operator<<(std::ostream& os, std::vector<Product> const& produit);
+std::ostream& operator<<(std::ostream& os, std::vector<Client> const& client);
+std::ostream& operator<<(std::ostream& os, std::vector<Commande> const& commande);
+
+void show_clients(Magasin& magasin);
+void show_commande(Magasin& magasin);
