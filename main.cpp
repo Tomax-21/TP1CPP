@@ -35,7 +35,6 @@ int main() {
 	std::cout << thomas;
 
 
-
 	//try {	
 	//	Product& produit = magasin.getProductByName("PS4");
 	//	updateProductQuantityByName(magasin, "PS4", 1);
