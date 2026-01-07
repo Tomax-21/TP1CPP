@@ -16,16 +16,16 @@ int main() {
 	magasin.addNewProduct(produit1);
 	magasin.addNewProduct(produit2);
 	
-	std::cout << magasin.products() << std::endl;
+	//std::cout << magasin.products() << std::endl;
 	Product& produit = magasin.getProductByName("PS4");
 
 	produit.setQuantity(1);
-	std::cout << magasin.products();
+	//std::cout << magasin.products();
 
 
 	Client thomas = Client("Thomas", "MILLET");
-	thomas.addProductToPanier(produit1);
-	thomas.addProductToPanier(produit2);
+	//thomas.addProductToPanier(produit1);
+	//thomas.addProductToPanier(produit2);
 
 	//std::cout << thomas;
 
@@ -37,10 +37,19 @@ int main() {
 	magasin.addNewClient(thomas);
 
 	//int thomas_id = thomas.getId();
-	//std::cout << magasin.getClientByName("MILLET") << std::endl;
+	std::cout << magasin.getClientByName("MILLET") << std::endl;
 	//std::cout << magasin.getClientById(thomas_id) << std::endl;
 	
-	
+	add_product_to_client(magasin, "PS4", "MILLET");
+
+	std::cout << magasin.getClientByName("MILLET") << std::endl;
+
+	remove_product_to_client(magasin, "PS4", "MILLET");
+
+
+	std::cout << magasin.getClientByName("MILLET") << std::endl;
+
+
 	//show_clients(magasin);
 	//thomas.removeProductFromPanier("PS4");
 	//std::cout << "####" << std::endl;

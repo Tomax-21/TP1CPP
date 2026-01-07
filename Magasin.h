@@ -31,7 +31,8 @@ public:
 void add_product_to_client(Magasin& magasin, std::string const& product_name, const std::string& client_name);
 void add_product_to_client(Magasin& magasin, std::string const& product_name, const int& client_id);
 
-
+void remove_product_to_client(Magasin& magasin, std::string const& product_name, const std::string& client_name);
+void remove_product_to_client(Magasin& magasin, std::string const& product_name, const int& client_id);
 
 void show_clients(Magasin& magasin);
 
