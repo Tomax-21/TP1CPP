@@ -20,4 +20,5 @@ public:
 	void setStatut(const CommandeStatut& statut);
 	Client client();
 	unsigned int id();
+	CommandeStatut statut();
 };

@@ -29,7 +29,10 @@ public:
 
 	void addNewOrder(const Commande& commande);
 
+	std::vector<Commande> getCommandes();
+	Commande& getCommandeById(const unsigned int commande_id);
 	void valideOrderById(const unsigned int commande_id);
+	void changeOrderStatutById(const unsigned int commande_id, CommandeStatut statut);
 };
 
 
@@ -49,5 +52,8 @@ void change_product_quantity_to_client(Magasin& magasin, std::string const& prod
 void show_clients(Magasin& magasin);
 
 void updateProductQuantityByName(Magasin& magasin, std::string const& product_name, int const& quantity);
+
+
+std::vector<Commande> getCommandeLivre(Magasin& magasin);
 
 std::ostream& operator<<(std::ostream& os, std::vector<Product> const& produit);

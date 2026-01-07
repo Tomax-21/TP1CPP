@@ -39,3 +39,8 @@ unsigned int Commande::id()
 {
     return id_;
 }
+
+CommandeStatut Commande::statut()
+{
+    return statut_;
+}

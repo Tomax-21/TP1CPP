@@ -50,15 +50,32 @@ void Magasin::addNewOrder(const Commande& commande)
 	orders_.push_back(commande);
 }
 
-void Magasin::valideOrderById(const unsigned int commande_id)
+std::vector<Commande> Magasin::getCommandes()
+{
+	return orders_;
+}
+
+Commande& Magasin::getCommandeById(const unsigned int commande_id)
 {
 	for (Commande& commande : orders_) {
 		if (commande.id() == commande_id) {
-			commande.setStatut(CommandeStatut::LIVRE);
+			return commande;
 		}
 	}
 	throw std::runtime_error("Commande non trouvé : " + commande_id);
+}
 
+void Magasin::valideOrderById(const unsigned int commande_id)
+{
+	Commande commande = getCommandeById(commande_id);
+	commande.setStatut(CommandeStatut::LIVRE);
+
+}
+
+void Magasin::changeOrderStatutById(const unsigned int commande_id, CommandeStatut statut)
+{
+	Commande commande = getCommandeById(commande_id);
+	commande.setStatut(statut);
 }
 
 
@@ -172,6 +189,19 @@ void updateProductQuantityByName(Magasin& magasin, std::string const& product_na
 
 
 
+
+
+std::vector<Commande> getCommandeLivre(Magasin& magasin)
+{
+	std::vector<Commande> liste_commande;
+
+	for (Commande& commande : magasin.getCommandes()) {
+		if (commande.statut() == CommandeStatut::LIVRE) {
+			liste_commande.push_back(commande);
+		}
+	}
+	return liste_commande;
+}
 
 
 std::ostream& operator<<(std::ostream& os, std::vector<Product> const& products)
