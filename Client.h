@@ -27,6 +27,11 @@ public:
 
 	friend std::ostream&operator << (std::ostream & os, const Client & client);
 
+	std::string getName();
+	std::string getSurname();
+	int getId();
+
+
 
 };
 

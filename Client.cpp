@@ -54,3 +54,18 @@ void Client::removeProductFromPanier(std::string product_name)
 		}
 	}
 }
+
+std::string Client::getName()
+{
+	return nom_;
+}
+
+int Client::getId()
+{
+	return id_;
+}
+
+std::string Client::getSurname()
+{
+	return prenom_;
+}

@@ -24,6 +24,8 @@ public:
 
 	std::vector<Client> getClients();
 
+	Client& getClientByName(std::string const& client_name);
+	Client& getClientById(int const& client_id);
 };
 
 void show_clients(Magasin& magasin);

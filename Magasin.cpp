@@ -25,6 +25,29 @@ std::vector<Client> Magasin::getClients()
 	return clients_;
 }
 
+Client& Magasin::getClientByName(std::string const& client_name)
+{
+	for (Client& client : clients_) {
+		if (client.getName() == client_name) {
+			return client;
+		}
+	}
+	throw std::runtime_error("Client non trouvé" + client_name);
+}
+
+Client& Magasin::getClientById(int const& client_id)
+{
+	for (Client& client : clients_) {
+		if(client.getId() == client_id) {
+			return client;
+		}
+	}
+	throw std::runtime_error("Client non trouvé" + client_id);
+}
+
+
+
+
 Product& Magasin::getProductByName(std::string const& product_name)
 {
 	for (Product& product : products_) {

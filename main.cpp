@@ -23,7 +23,7 @@ int main() {
 	std::cout << magasin.products();
 
 
-	Client thomas = Client("MILLET", "Thomas");
+	Client thomas = Client("Thomas", "MILLET");
 	thomas.addProductToPanier(produit1);
 	thomas.addProductToPanier(produit2);
 
@@ -34,7 +34,13 @@ int main() {
 	//std::cout << thomas;
 
 
-	//magasin.addNewClient(thomas);
+	magasin.addNewClient(thomas);
+
+	//int thomas_id = thomas.getId();
+	//std::cout << magasin.getClientByName("MILLET") << std::endl;
+	//std::cout << magasin.getClientById(thomas_id) << std::endl;
+	
+	
 	//show_clients(magasin);
 	//thomas.removeProductFromPanier("PS4");
 	//std::cout << "####" << std::endl;
