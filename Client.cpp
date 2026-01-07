@@ -55,17 +55,17 @@ void Client::removeProductFromPanier(std::string product_name)
 	}
 }
 
-std::string Client::getName()
+std::string Client::getName() const
 {
 	return nom_;
 }
 
-int Client::getId()
+int Client::getId() const
 {
 	return id_;
 }
 
-std::string Client::getSurname()
+std::string Client::getSurname() const
 {
 	return prenom_;
 }

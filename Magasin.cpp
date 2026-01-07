@@ -59,6 +59,38 @@ Product& Magasin::getProductByName(std::string const& product_name)
 }
 
 
+
+
+
+
+
+
+void add_product_to_client(Magasin& magasin, std::string const& product_name, const std::string& client_name)
+{
+	Client& client = magasin.getClientByName(client_name);
+	Product& product = magasin.getProductByName(product_name);
+
+	client.addProductToPanier(product);
+}
+
+
+void add_product_to_client(Magasin& magasin, std::string const& product_name, const int& client_id)
+{
+	Client& client = magasin.getClientById(client_id);
+	Product& product = magasin.getProductByName(product_name);
+
+	client.addProductToPanier(product);
+}
+
+
+
+
+
+
+
+
+
+
 void show_clients(Magasin& magasin)
 {
 

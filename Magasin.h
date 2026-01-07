@@ -28,6 +28,11 @@ public:
 	Client& getClientById(int const& client_id);
 };
 
+void add_product_to_client(Magasin& magasin, std::string const& product_name, const std::string& client_name);
+void add_product_to_client(Magasin& magasin, std::string const& product_name, const int& client_id);
+
+
+
 void show_clients(Magasin& magasin);
 
 void updateProductQuantityByName(Magasin& magasin, std::string const& product_name, int const& quantity);
