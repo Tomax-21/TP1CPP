@@ -11,7 +11,7 @@ void hud(Magasin& magasin) {
 
 	do {
 		std::cout << "1 : Gerer le magasin" << std::endl;
-		std::cout << "2 : Gerer les utilisateurs" << std::endl;
+		std::cout << "2 : Gerer les clients" << std::endl;
 		std::cout << "3 : Gerer les commandes" << std::endl;
 
 
@@ -25,6 +25,9 @@ void hud(Magasin& magasin) {
 
 	if (choix == "1") {
 		menu1(magasin);
+	}
+	if (choix == "2") {
+		menu2(magasin);
 	}
 
 	} while (choix != "exit");
@@ -45,15 +48,16 @@ void menu1(Magasin& magasin) {
 		std::cout << "2 : Ajouter un utilisateur" << std::endl;
 		std::cout << "3 : Afficher tous les produits" << std::endl;
 		std::cout << "4 : Ajouter produits" << std::endl;
-		std::cout << "5 : Afficher toutes les commandes" << std::endl;
+		std::cout << "5 : Modifier un produit" << std::endl;
+		std::cout << "6 : Afficher toutes les commandes" << std::endl;
 
 	
 		do {
 			std::cin >> choix;
-			if (choix != "1" && choix != "2" && choix != "3" && choix != "4" && choix != "5" && choix != "exit") {
-				std::cout << "Choix incorrect, votre choix doit se situer etre un chiffre entre 1 et 5" << std::endl;
+			if (choix != "1" && choix != "2" && choix != "3" && choix != "4" && choix != "5" && choix != "6" && choix != "exit") {
+				std::cout << "Choix incorrect, votre choix doit se situer etre un chiffre entre 1 et 6" << std::endl;
 			}
-		} while (choix != "1" && choix != "2" && choix != "3" && choix != "4" && choix != "5" && choix != "exit");
+		} while (choix != "1" && choix != "2" && choix != "3" && choix != "4" && choix != "5" && choix != "6" && choix != "exit");
 
 		if (choix == "1") {
 			std::cout << magasin.getClients() << std::endl;
@@ -66,6 +70,9 @@ void menu1(Magasin& magasin) {
 		}
 		if (choix == "4") {
 			menu1_4(magasin);
+		}
+		if (choix == "6") {
+			std::cout << magasin.getCommandes() << std::endl;
 		}
 	} while (choix != "exit");
 
@@ -103,4 +110,64 @@ void menu1_4(Magasin& magasin) {
 	Product produit = Product(name, desc, quantity, price);
 
 	magasin.addNewProduct(produit);
+}
+
+
+void menu2(Magasin& magasin) {
+	std::cout << "Que souhaitez vous faire ?" << std::endl;
+
+	std::string choix;
+	do {
+		std::cout << "1 : Afficher tous les clients ?" << std::endl;
+		std::cout << "2 : Afficher un client ?" << std::endl;
+		std::cout << "3 : Ajouter un client ?" << std::endl;
+		std::cout << "4 : Modifier un client ?" << std::endl;
+		//std::cout << "5 : Supprimer un client ?" << std::endl;
+
+
+		do {
+			std::cin >> choix;
+			if (choix != "1" && choix != "2" && choix != "3" && choix != "4" && choix != "exit") {
+				std::cout << "Choix incorrect, votre choix doit se situer etre un chiffre entre 1 et 4" << std::endl;
+			}
+		} while (choix != "1" && choix != "2" && choix != "3" && choix != "4"  && choix != "exit");
+
+		if (choix == "1") {
+			std::cout << magasin.getClients() << std::endl;
+		}
+		if (choix == "2") {
+			menu2_2(magasin);
+		}
+
+
+	} while (choix != "exit");
+}
+
+
+void menu2_2(Magasin& magasin) {
+	// afficher un client precis
+	std::string val;
+
+	std::string choix;
+
+	do {
+		std::cout << "Rechercher par (1) id ou par (2) nom";
+		std::cin >> choix;
+	} while (choix != "1" && choix != "2");
+	
+	try {
+		if (choix == "1") {
+			std::cout << "Quelle est l'id du client ? : ";
+			std::cin >> val;
+			std::cout << magasin.getClientById(stoi(val)) << std::endl;
+		}
+		else if (choix == "2") {
+			std::cout << "Quelle est le nom du client ? : ";
+			std::cin >> val;
+			std::cout << magasin.getClientByName(val) << std::endl;
+		}
+	}
+	catch (const std::runtime_error& e) {
+		std::cout << "Client Introvable";
+	} 
 }

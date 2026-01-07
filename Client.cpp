@@ -2,6 +2,7 @@
 
 std::ostream& operator<<(std::ostream& os, const Client& client)
 {
+	os << "Id : " << client.id_ << std::endl;
 	os << "Nom : " << client.nom_ << " Prenom : " << client.prenom_ << std::endl;
 	for (Product produit : client.panier_) {
 		os << produit << std::endl;
