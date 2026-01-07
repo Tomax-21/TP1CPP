@@ -28,7 +28,14 @@ public:
 
 
 	void addNewOrder(const Commande& commande);
+
+	void valideOrderById(const unsigned int commande_id);
 };
+
+
+
+
+
 
 void add_product_to_client(Magasin& magasin, std::string const& product_name, const std::string& client_name);
 void add_product_to_client(Magasin& magasin, std::string const& product_name, const int& client_id);

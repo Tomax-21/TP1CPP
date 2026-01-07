@@ -8,6 +8,7 @@
 class Commande
 {
 private :
+	unsigned int id_;
 	Client client_;
 	std::vector<Product> produits_;
 	CommandeStatut statut_;
@@ -15,4 +16,8 @@ private :
 public:
 	Commande(const Client& client, const CommandeStatut statut);
 	friend std::ostream& operator<<(std::ostream& os, const Commande& commande);
+
+	void setStatut(const CommandeStatut& statut);
+	Client client();
+	unsigned int id();
 };

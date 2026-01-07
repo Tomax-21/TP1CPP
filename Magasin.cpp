@@ -50,6 +50,17 @@ void Magasin::addNewOrder(const Commande& commande)
 	orders_.push_back(commande);
 }
 
+void Magasin::valideOrderById(const unsigned int commande_id)
+{
+	for (Commande& commande : orders_) {
+		if (commande.id() == commande_id) {
+			commande.setStatut(CommandeStatut::LIVRE);
+		}
+	}
+	throw std::runtime_error("Commande non trouvé : " + commande_id);
+
+}
+
 
 
 

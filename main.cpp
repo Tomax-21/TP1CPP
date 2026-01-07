@@ -1,7 +1,6 @@
 #include <iostream>
 #include "Magasin.h"
 
-
 int main() {
 
 	srand((unsigned int)time(0));
@@ -39,6 +38,13 @@ int main() {
 
 
 	magasin.addNewClient(thomas);
+
+
+	Commande commande1 = Commande(thomas, CommandeStatut::NON_LIVRE);
+
+	magasin.addNewOrder(commande1);
+
+	magasin.valideOrderById(commande1.id());
 
 
 	//int thomas_id = thomas.getId();

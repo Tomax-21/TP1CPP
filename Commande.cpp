@@ -21,6 +21,21 @@ std::ostream& operator<<(std::ostream& os, const Commande& commande)
 }
 
 
-Commande::Commande(const Client& client, const CommandeStatut statut):client_(client), statut_(statut)
+Commande::Commande(const Client& client, const CommandeStatut statut):id_(generate_random_product_id()), client_(client), statut_(statut)
 {
+}
+
+void Commande::setStatut(const CommandeStatut& statut)
+{
+    statut_ = statut;
+}
+
+Client Commande::client()
+{
+    return client_;
+}
+
+unsigned int Commande::id()
+{
+    return id_;
 }
