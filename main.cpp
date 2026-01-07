@@ -44,6 +44,11 @@ int main() {
 
 	std::cout << magasin.getClientByName("MILLET") << std::endl;
 
+	change_product_quantity_to_client(magasin, "PS4", "MILLET", 12);
+
+	std::cout << magasin.getClientByName("MILLET") << std::endl;
+
+
 	remove_product_to_client(magasin, "PS4", "MILLET");
 
 

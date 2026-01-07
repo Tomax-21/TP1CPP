@@ -95,6 +95,30 @@ void remove_product_to_client(Magasin& magasin, std::string const& product_name,
 	client.removeProductFromPanier(product_name);
 }
 
+void change_product_quantity_to_client(Magasin& magasin, std::string const& product_name, const std::string& client_name, const int& quantity)
+{
+	Client& client = magasin.getClientByName(client_name);
+
+	if (quantity == 0) {
+		client.removeProductFromPanier(product_name);
+	}
+	else {
+		client.setProductQuantityByName(product_name, quantity);
+	}
+}
+
+void change_product_quantity_to_client(Magasin& magasin, std::string const& product_name, const int& client_id, const int& quantity)
+{
+	Client& client = magasin.getClientById(client_id);
+
+	if (quantity == 0) {
+		client.removeProductFromPanier(product_name);
+	}
+	else {
+		client.setProductQuantityByName(product_name, quantity);
+	}
+}
+
 
 
 

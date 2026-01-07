@@ -34,6 +34,9 @@ void add_product_to_client(Magasin& magasin, std::string const& product_name, co
 void remove_product_to_client(Magasin& magasin, std::string const& product_name, const std::string& client_name);
 void remove_product_to_client(Magasin& magasin, std::string const& product_name, const int& client_id);
 
+void change_product_quantity_to_client(Magasin& magasin, std::string const& product_name, const std::string& client_name, const int& quantity);
+void change_product_quantity_to_client(Magasin& magasin, std::string const& product_name, const int& client_id, const int& quantity);
+
 void show_clients(Magasin& magasin);
 
 void updateProductQuantityByName(Magasin& magasin, std::string const& product_name, int const& quantity);
