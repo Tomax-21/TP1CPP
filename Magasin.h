@@ -38,7 +38,7 @@ public:
 
 
 
-
+void add_product_to_commande(Magasin& magasin, const unsigned int commande_id, std::string const& product_name);
 
 void add_product_to_client(Magasin& magasin, std::string const& product_name, const std::string& client_name);
 void add_product_to_client(Magasin& magasin, std::string const& product_name, const int& client_id);
@@ -55,5 +55,6 @@ void updateProductQuantityByName(Magasin& magasin, std::string const& product_na
 
 
 std::vector<Commande> getCommandeLivre(Magasin& magasin);
+std::vector<Commande> getCommandeFromClient(Magasin& magasin, const Client& client);
 
 std::ostream& operator<<(std::ostream& os, std::vector<Product> const& produit);

@@ -30,6 +30,11 @@ void Commande::setStatut(const CommandeStatut& statut)
     statut_ = statut;
 }
 
+void Commande::addProduct(const Product& product)
+{
+    produits_.push_back(product)
+}
+
 Client Commande::client()
 {
     return client_;

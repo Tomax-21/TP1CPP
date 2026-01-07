@@ -18,6 +18,8 @@ public:
 	friend std::ostream& operator<<(std::ostream& os, const Commande& commande);
 
 	void setStatut(const CommandeStatut& statut);
+
+	void addProduct(const Product& product);
 	Client client();
 	unsigned int id();
 	CommandeStatut statut();

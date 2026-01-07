@@ -98,6 +98,15 @@ Product& Magasin::getProductByName(std::string const& product_name)
 
 
 
+void add_product_to_commande(Magasin& magasin, const unsigned int commande_id, std::string const& product_name)
+{
+	Product& product = magasin.getProductByName(product_name);
+	Commande& commande = magasin.getCommandeById(commande_id);
+
+	commande.addProduct(product)
+
+}
+
 void add_product_to_client(Magasin& magasin, std::string const& product_name, const std::string& client_name)
 {
 	Client& client = magasin.getClientByName(client_name);
@@ -197,6 +206,18 @@ std::vector<Commande> getCommandeLivre(Magasin& magasin)
 
 	for (Commande& commande : magasin.getCommandes()) {
 		if (commande.statut() == CommandeStatut::LIVRE) {
+			liste_commande.push_back(commande);
+		}
+	}
+	return liste_commande;
+}
+
+std::vector<Commande> getCommandeFromClient(Magasin& magasin, const Client& client)
+{
+	std::vector<Commande> liste_commande;
+
+	for (Commande& commande : magasin.getCommandes()) {
+		if (commande.client().getId() == client.getId()) {
 			liste_commande.push_back(commande);
 		}
 	}
