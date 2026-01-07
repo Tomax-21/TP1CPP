@@ -18,10 +18,15 @@ public:
 	std::vector<Product> products() const;
 	Product& getProductByName(std::string const& product_name);
 
-	void addNewProduct(Product const& product);
+	void addNewProduct(const Product& product);
+
+	void addNewClient(const Client& client);
+
+	std::vector<Client> getClients();
 
 };
 
+void show_clients(Magasin& magasin);
 
 void updateProductQuantityByName(Magasin& magasin, std::string const& product_name, int const& quantity);
 

@@ -10,9 +10,19 @@ std::vector<Product> Magasin::products() const
 	return products_;
 }
 
-void Magasin::addNewProduct(Product const& product)
+void Magasin::addNewProduct(const Product& product)
 {
 	products_.push_back(product);
+}
+
+void Magasin::addNewClient(const Client& client)
+{
+	clients_.push_back(client);
+}
+
+std::vector<Client> Magasin::getClients()
+{
+	return clients_;
 }
 
 Product& Magasin::getProductByName(std::string const& product_name)
@@ -26,8 +36,13 @@ Product& Magasin::getProductByName(std::string const& product_name)
 }
 
 
+void show_clients(Magasin& magasin)
+{
 
-
+	for (Client& client : magasin.getClients()) {
+		std::cout << client << std::endl;
+	}
+}
 
 void updateProductQuantityByName(Magasin& magasin, std::string const& product_name, int const& quantity)
 {
