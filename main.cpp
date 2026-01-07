@@ -15,8 +15,12 @@ int main() {
 	
 	magasin.addNewProduct(produit1);
 	magasin.addNewProduct(produit2);
+
+	//produit1.setQuantity(12);
 	
 	//std::cout << magasin.products() << std::endl;
+
+
 	Product& produit = magasin.getProductByName("PS4");
 
 	produit.setQuantity(1);
@@ -36,23 +40,24 @@ int main() {
 
 	magasin.addNewClient(thomas);
 
+
 	//int thomas_id = thomas.getId();
-	std::cout << magasin.getClientByName("MILLET") << std::endl;
+	//std::cout << magasin.getClientByName("MILLET") << std::endl;
 	//std::cout << magasin.getClientById(thomas_id) << std::endl;
 	
-	add_product_to_client(magasin, "PS4", "MILLET");
+	//add_product_to_client(magasin, "PS4", "MILLET");
 
-	std::cout << magasin.getClientByName("MILLET") << std::endl;
+	//std::cout << magasin.getClientByName("MILLET") << std::endl;
 
-	change_product_quantity_to_client(magasin, "PS4", "MILLET", 12);
+	//change_product_quantity_to_client(magasin, "PS4", "MILLET", 12);
 
-	std::cout << magasin.getClientByName("MILLET") << std::endl;
-
-
-	remove_product_to_client(magasin, "PS4", "MILLET");
+	//std::cout << magasin.getClientByName("MILLET") << std::endl;
 
 
-	std::cout << magasin.getClientByName("MILLET") << std::endl;
+	//remove_product_to_client(magasin, "PS4", "MILLET");
+
+
+	//std::cout << magasin.getClientByName("MILLET") << std::endl;
 
 
 	//show_clients(magasin);

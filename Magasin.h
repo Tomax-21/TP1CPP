@@ -3,7 +3,7 @@
 #include <vector>
 #include "Product.h"
 #include "Client.h"
-#include "Order.h"
+#include "Commande.h"
 
 class Magasin
 {
@@ -11,10 +11,9 @@ class Magasin
 private:
 	std::vector<Product> products_;
 	std::vector<Client> clients_;
-	std::vector<Order> orders_;
+	std::vector<Commande> orders_;
 public:
 	Magasin();
-
 	std::vector<Product> products() const;
 	Product& getProductByName(std::string const& product_name);
 
@@ -26,6 +25,9 @@ public:
 
 	Client& getClientByName(std::string const& client_name);
 	Client& getClientById(int const& client_id);
+
+
+	void addNewOrder(const Commande& commande);
 };
 
 void add_product_to_client(Magasin& magasin, std::string const& product_name, const std::string& client_name);

@@ -1,7 +1,7 @@
 #include "Magasin.h"
 
 Magasin::Magasin() :
-	products_(std::vector<Product> {}), clients_(std::vector<Client> {}), orders_(std::vector<Order> {})
+	products_(std::vector<Product> {}), clients_(std::vector<Client> {}), orders_(std::vector<Commande> {})
 {
 }
 
@@ -43,6 +43,11 @@ Client& Magasin::getClientById(int const& client_id)
 		}
 	}
 	throw std::runtime_error("Client non trouvé" + client_id);
+}
+
+void Magasin::addNewOrder(const Commande& commande)
+{
+	orders_.push_back(commande);
 }
 
 
