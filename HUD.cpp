@@ -149,6 +149,8 @@ void menu2(Magasin& magasin) {
 			create_client_hud(magasin);
 		} if (choix == "4") {
 			modify_client_hud(magasin);
+		} if (choix == "5") {
+			delete_client_hud(magasin);
 		}
 
 	} while (choix != "exit");
@@ -256,6 +258,22 @@ void modify_client_hud(Magasin& magasin)
 	}
 	catch (std::runtime_error& e) {
 		std::cout << "Client introuvable";
+	}
+
+}
+
+void delete_client_hud(Magasin& magasin) {
+	std::string name;
+	std::cout << "Quel est le nom du client que vous souhaitez supprimer ? : ";
+	std::getline(std::cin, name);
+	
+	try {
+		Client client = magasin.getClientByName(name);
+		magasin.removeClient(client);
+		std::cout << "Le client : " << client << std::endl << "a ete supprime avec succes";
+	}
+	catch (std::runtime_error e) {
+		std::cout << "Le client est introuvable" << std::endl;
 	}
 
 }

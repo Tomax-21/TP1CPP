@@ -18,3 +18,5 @@ void modify_product_quantity_hud(Magasin& magasin);
 void show_product(Magasin& magasin);
 
 void modify_client_hud(Magasin& magasin);
+
+void delete_client_hud(Magasin& magasin);
