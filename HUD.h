@@ -33,3 +33,4 @@ void modify_quantity_product_cart_client_hud(Magasin& magasin, Client& client);
 
 
 void create_commande_hud(Magasin& magasin);
+void show_commande_hud(Magasin& magasin);

@@ -16,6 +16,7 @@ std::ostream& operator<<(std::ostream& os, const Commande& commande)
     }
 
     os << std::endl << "Statut : " << statut << std::endl;
+    os <<"id : " << commande.id_ << std::endl;
 
     return os;
 }

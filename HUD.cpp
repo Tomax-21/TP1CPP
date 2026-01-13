@@ -28,6 +28,9 @@ void hud(Magasin& magasin) {
 	}
 	if (choix == "2") {
 		menu2(magasin);
+	} 
+	if (choix == "3") {
+		menu3(magasin);
 	}
 
 	} while (choix != "exit");
@@ -178,7 +181,7 @@ void menu3(Magasin& magasin)
 			show_all_commandes_hud(magasin);
 		}
 		if (choix == "2") {
-			
+			show_commande_hud(magasin);
 		}
 
 		if (choix == "3") {
@@ -187,6 +190,22 @@ void menu3(Magasin& magasin)
 	} while (choix != "exit");
 	
 }
+
+void show_commande_hud(Magasin& magasin) {
+	std::string commande_id;
+	std::cout << "Quel est l'id de votre commande ? : ";
+	std::getline(std::cin, commande_id);
+
+	try {
+		Commande commande = magasin.getCommandeById(stoi(commande_id));
+		std::cout << commande << std::endl;
+	}
+	catch (std::runtime_error e) {
+		std::cout << "Commande introuvable" << std::endl;
+	}
+
+}
+
 void create_commande_hud(Magasin& magasin) {
 	std::string client_name;
 	std::cout << "Selectionner un client, quel est son nom ? : ";
