@@ -150,7 +150,7 @@ void menu2(Magasin& magasin) {
 		} if (choix == "5") {
 			delete_client_hud(magasin);
 		} if (choix == "6") {
-
+			manage_panier_client(magasin);
 		}
 
 	} while (choix != "exit");
@@ -186,6 +186,10 @@ void manage_panier_client(Magasin& magasin) {
 				add_product_to_card_hud(magasin, client);
 			}
 
+			if (choix == "2") {
+				remove_product_to_card_hud(magasin, client);
+			}
+
 			if (choix == "3") {
 				show_client_cart_hud(client);
 			}
@@ -205,11 +209,29 @@ void manage_panier_client(Magasin& magasin) {
 
 
 void show_client_cart_hud(Client& client) {
-	std::vector<Product> cart = client.getPanier()
+	std::vector<Product> cart = client.panier();
+
+	for (auto it = cart.begin(); it != cart.end(); it++) {
+		std::cout << *it << std::endl;
+	}
+}
+
+void remove_product_to_card_hud(Magasin& magasin, Client& client)
+{
+	std::string product_name;
+
+	std::cout << "Quel produit souhaitez vous supprimer du panier ? : ";
+	std::getline(std::cin, product_name);
+
+	client.removeProductFromPanier(product_name);
+	std::cout << "Produit supprimer avec succes" << std::endl;
 }
 
 void add_product_to_card_hud(Magasin& magasin, Client& client) {
 	std::string product_name;
+
+	std::cout << "Quel produit souhaitez vous ajouter au panier ? : ";
+	std::getline(std::cin, product_name);
 	
 	try {
 		Product& product = magasin.getProductByName(product_name);
