@@ -6,10 +6,25 @@
 
 void SaveClient(std::vector<Client> clients)
 {
-	std::ofstream ClientFile("Client.csv");
+	std::ofstream ClientsFile("Clients.csv");
+	std::ofstream ClientPanierFile("ClientPanier.csv");
+
 
 	for (Client& client : clients) {
-		ClientFile << client.getId() << ";" << client.getName() << ";" << client.getSurname() << std::endl;
+		ClientsFile << client.getId() << ";" << client.getName() << ";" << client.getSurname() << std::endl;
+		for (Product& product : client.panier()) {
+			ClientPanierFile << client.getId() << ";" << product.id() << ";" << product.title() << ";" << product.description() << ";" << product.quantity() << ";" << product.unit_price() << std::endl;
+		}
+	}
+
+}
+
+void SaveProduct(std::vector<Product> products)
+{
+	std::ofstream ProductsFile("Products.csv");
+
+	for (Product& product : products) {
+		ProductsFile << product.id() << ";" << product.title() << ";" << product.description() << ";" << product.quantity() << ";" << product.unit_price() << std::endl;
 	}
 }
 
