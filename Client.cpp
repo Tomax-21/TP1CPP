@@ -66,6 +66,11 @@ int Client::getId() const
 	return id_;
 }
 
+std::vector<Product> Client::panier() const
+{
+	return panier_;
+}
+
 void Client::setName(std::string name)
 {
 	nom_ = name;

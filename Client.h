@@ -30,6 +30,7 @@ public:
 	std::string getName() const;
 	std::string getSurname() const;
 	int getId() const;
+	std::vector<Product> panier() const;
 
 	void setName(std::string name);
 	void setPrenom(std::string prenom);

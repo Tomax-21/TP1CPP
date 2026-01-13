@@ -128,17 +128,15 @@ void menu2(Magasin& magasin) {
 		std::cout << "3 : Ajouter un client ?" << std::endl;
 		std::cout << "4 : Modifier un client ?" << std::endl;
 		std::cout << "5 : Supprimer un client ?" << std::endl;
-		std::cout << "6 : Ajouter un produit au panier du client ?" << std::endl;
-		std::cout << "7 : Supprimer un produit au panier du client ? " << std::endl;
-		std::cout << "8 : Afficher le panier d'un client" << std::endl;
+		std::cout << "6 : Gerer le panier d'un client ? " << std::endl;
 
 
 		do {
 			std::getline(std::cin, choix);
-			if (choix != "1" && choix != "2" && choix != "3" && choix != "4" && choix != "5" && choix != "6" && choix != "7" && choix != "8" && choix != "exit") {
-				std::cout << "Choix incorrect, votre choix doit etre un chiffre entre 1 et 8" << std::endl;
+			if (choix != "1" && choix != "2" && choix != "3" && choix != "4" && choix != "5" && choix != "6" && choix != "exit") {
+				std::cout << "Choix incorrect, votre choix doit etre un chiffre entre 1 et 6" << std::endl;
 			}
-		} while (choix != "1" && choix != "2" && choix != "3" && choix != "4" && choix != "5" && choix != "6" && choix != "7" && choix != "8" && choix != "exit");
+		} while (choix != "1" && choix != "2" && choix != "3" && choix != "4" && choix != "5" && choix != "6" && choix != "exit");
 
 		if (choix == "1") {
 			show_all_clients_hud(magasin);
@@ -151,10 +149,79 @@ void menu2(Magasin& magasin) {
 			modify_client_hud(magasin);
 		} if (choix == "5") {
 			delete_client_hud(magasin);
+		} if (choix == "6") {
+
 		}
 
 	} while (choix != "exit");
 }
+
+
+void manage_panier_client(Magasin& magasin) {
+	std::string client_name;
+
+	std::cout << "Quel est le nom du client pour lequel vous souhaitez modifier le panier ? : ";
+	std::getline(std::cin, client_name);
+
+	try {
+		Client& client = magasin.getClientByName(client_name);
+	
+		std::cout << "Que souhaitez vous faire ?" << std::endl;
+		std::string choix;
+
+		do {
+			std::cout << "1 : Ajouter un produit au panier du client ?" << std::endl;
+			std::cout << "2 : Supprimer un produit au panier du client ? " << std::endl;
+			std::cout << "3 : Afficher le panier d'un client" << std::endl;
+			std::cout << "4 : Afficher tous les produits disponible" << std::endl;
+
+			do {
+				std::getline(std::cin, choix);
+				if (choix != "1" && choix != "2" && choix != "3" && choix != "4" && choix != "exit") {
+					std::cout << "Choix incorrect, votre choix doit etre un chiffre entre 1 et 4" << std::endl;
+				}
+			} while (choix != "1" && choix != "2" && choix != "3" && choix != "4" && choix != "exit");
+
+			if (choix == "1") {
+				add_product_to_card_hud(magasin, client);
+			}
+
+			if (choix == "3") {
+				show_client_cart_hud(client);
+			}
+
+			if (choix == "4") {
+				show_all_products_hud(magasin);
+			}
+		
+		} while (choix != "exit");
+
+	}
+	catch (std::runtime_error e) {
+		std::cout << "client introuvable" << std::endl;
+	}
+	
+}
+
+
+void show_client_cart_hud(Client& client) {
+	std::vector<Product> cart = client.getPanier()
+}
+
+void add_product_to_card_hud(Magasin& magasin, Client& client) {
+	std::string product_name;
+	
+	try {
+		Product& product = magasin.getProductByName(product_name);
+		client.addProductToPanier(product);
+		client.setProductQuantityByName(product.title(), 1);
+	}
+	catch (std::runtime_error e) {
+		std::cout << "Aucun produit de ce type a ete trouve" << std::endl;
+	}
+}
+
+
 
 void show_all_products_hud(Magasin& magasin) {
 	std::cout << magasin.products() << std::endl;
