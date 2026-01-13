@@ -122,15 +122,15 @@ void menu2(Magasin& magasin) {
 		std::cout << "2 : Afficher un client ?" << std::endl;
 		std::cout << "3 : Ajouter un client ?" << std::endl;
 		std::cout << "4 : Modifier un client ?" << std::endl;
-		//std::cout << "5 : Supprimer un client ?" << std::endl;
+		std::cout << "5 : Supprimer un client ?" << std::endl;
 
 
 		do {
 			std::cin >> choix;
-			if (choix != "1" && choix != "2" && choix != "3" && choix != "4" && choix != "exit") {
-				std::cout << "Choix incorrect, votre choix doit se situer etre un chiffre entre 1 et 4" << std::endl;
+			if (choix != "1" && choix != "2" && choix != "3" && choix != "4" && choix != "5" && choix != "exit") {
+				std::cout << "Choix incorrect, votre choix doit se situer etre un chiffre entre 1 et 5" << std::endl;
 			}
-		} while (choix != "1" && choix != "2" && choix != "3" && choix != "4"  && choix != "exit");
+		} while (choix != "1" && choix != "2" && choix != "3" && choix != "4" && choix != "5" && choix != "exit");
 
 		if (choix == "1") {
 			std::cout << magasin.getClients() << std::endl;
@@ -147,7 +147,6 @@ void menu2(Magasin& magasin) {
 void menu2_2(Magasin& magasin) {
 	// afficher un client precis
 	std::string val;
-
 	std::string choix;
 
 	do {

@@ -20,6 +20,7 @@ public:
 	void addNewProduct(const Product& product);
 
 	void addNewClient(const Client& client);
+	void removeClient(const Client& client);
 
 	std::vector<Client> getClients();
 

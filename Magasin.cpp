@@ -20,6 +20,16 @@ void Magasin::addNewClient(const Client& client)
 	clients_.push_back(client);
 }
 
+void Magasin::removeClient(const Client& client)
+{
+	for (auto it = clients_.begin(); it != clients_.end(); ++it) {
+		if (it->getId() == client.getId()) {
+			clients_.erase(it);
+			return;
+		}
+	}
+}
+
 std::vector<Client> Magasin::getClients()
 {
 	return clients_;
