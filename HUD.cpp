@@ -169,13 +169,14 @@ void menu3(Magasin& magasin)
 		std::cout << "2 : Afficher une commande" << std::endl;
 		std::cout << "3 : Creer une nouvelle commande" << std::endl;
 		std::cout << "4 : Modifier le statut d'une commande" << std::endl;
+		std::cout << "5 : Valider une commande" << std::endl;
 
 		do {
 			std::getline(std::cin, choix);
-			if (choix != "1" && choix != "2" && choix != "3" && choix != "4" && choix != "exit") {
-				std::cout << "Choix incorrect, votre choix doit etre un chiffre entre 1 et 2" << std::endl;
+			if (choix != "1" && choix != "2" && choix != "3" && choix != "4" && choix != "5" && choix != "exit") {
+				std::cout << "Choix incorrect, votre choix doit etre un chiffre entre 1 et 5" << std::endl;
 			}
-		} while (choix != "1" && choix != "2" && choix != "3" && choix != "4" && choix != "exit");
+		} while (choix != "1" && choix != "2" && choix != "3" && choix != "4" && choix != "5" && choix != "exit");
 
 		if (choix == "1") {
 			show_all_commandes_hud(magasin);
@@ -183,12 +184,53 @@ void menu3(Magasin& magasin)
 		if (choix == "2") {
 			show_commande_hud(magasin);
 		}
-
 		if (choix == "3") {
 			create_commande_hud(magasin);
 		}
+		if (choix == "4") {
+			change_statut_commande_hud(magasin);
+		} 
+		if (choix == "5") {
+			valider_commande_hud(magasin);
+		}
 	} while (choix != "exit");
 	
+}
+
+void valider_commande_hud(Magasin& magasin) {
+	std::string commande_id;
+	std::cout << "Quel est l'id de votre commande ? : ";
+	std::getline(std::cin, commande_id);
+
+	try {
+		magasin.valideOrderById(stoi(commande_id));
+	}
+	catch (std::runtime_error e) {
+		std::cout << "Commande introuvable" << std::endl;
+	}
+}
+void change_statut_commande_hud(Magasin& magasin) {
+	std::string commande_id;
+	std::cout << "Quel est l'id de votre commande ? : ";
+	std::getline(std::cin, commande_id);
+
+	std::string statut;
+
+	do {
+		std::cout << "Quel statut voulez vous mettre ? Livre ou Non livre ? ";
+		std::getline(std::cin, statut);
+		if (statut != "Livre" && statut != "Non livre") {
+			std::cout << "Erreur : Statut incorrect" << std::endl;
+		}
+	} while (statut != "Livre" && statut != "Non livre");
+	
+
+	try {
+		magasin.changeOrderStatutById(stoi(commande_id), statut == "Livre" ? CommandeStatut::LIVRE : CommandeStatut::NON_LIVRE);
+	}
+	catch (std::runtime_error e) {
+		std::cout << "Commande introuvable" << std::endl;
+	}
 }
 
 void show_commande_hud(Magasin& magasin) {

@@ -77,14 +77,14 @@ Commande& Magasin::getCommandeById(const unsigned int commande_id)
 
 void Magasin::valideOrderById(const unsigned int commande_id)
 {
-	Commande commande = getCommandeById(commande_id);
+	Commande& commande = getCommandeById(commande_id);
 	commande.setStatut(CommandeStatut::LIVRE);
 
 }
 
 void Magasin::changeOrderStatutById(const unsigned int commande_id, CommandeStatut statut)
 {
-	Commande commande = getCommandeById(commande_id);
+	Commande& commande = getCommandeById(commande_id);
 	commande.setStatut(statut);
 }
 
