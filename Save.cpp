@@ -11,7 +11,7 @@ void SaveClient(std::vector<Client> clients)
 
 
 	for (Client& client : clients) {
-		ClientsFile << client.getId() << ";" << client.getName() << ";" << client.getSurname() << std::endl;
+		ClientsFile << client.getId() << ";" << client.getSurname() << ";" << client.getName() << std::endl;
 		for (Product& product : client.panier()) {
 			ClientPanierFile << client.getId() << ";" << product.id() << ";" << product.title() << ";" << product.description() << ";" << product.quantity() << ";" << product.unit_price() << std::endl;
 		}

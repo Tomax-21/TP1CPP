@@ -325,6 +325,7 @@ void manage_panier_client(Magasin& magasin) {
 			if (choix == "5") {
 				show_all_products_hud(magasin);
 			}
+			SaveAll(magasin);
 		
 		} while (choix != "exit");
 

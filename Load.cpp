@@ -18,8 +18,8 @@ std::vector<Client> LoadClient()
 		std::string id, name, surname;
 
 		std::getline(ss, id, ';');
-		std::getline(ss, name, ';');
 		std::getline(ss, surname, ';');
+		std::getline(ss, name, ';');
 
 		std::vector<Product> panier;
 
@@ -42,8 +42,8 @@ std::vector<Client> LoadClient()
 				panier.push_back(Product(stoi(idProduct), nameProduct, descProduct, stoi(quantity), stof(unit_price)));
 			}
 		}
-
-		clients.push_back(Client(stoi(id), name, surname, panier));
+		std::cout << panier;
+		clients.push_back(Client(stoi(id), surname, name, panier));
 	}
 
 	return clients;
