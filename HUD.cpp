@@ -156,6 +156,7 @@ void menu2(Magasin& magasin) {
 			manage_panier_client(magasin);
 		}
 
+
 	} while (choix != "exit");
 }
 
