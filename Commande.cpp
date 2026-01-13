@@ -26,6 +26,11 @@ Commande::Commande(const Client& client, const CommandeStatut statut):id_(genera
 {
 }
 
+Commande::Commande(const unsigned int& id, const Client& client, const std::vector<Product>& produits, const CommandeStatut statut):
+    id_(id), client_(client), produits_(produits), statut_(statut)
+{
+}
+
 Commande::Commande(const Client& client) :id_(generate_random_product_id()), client_(client), statut_(CommandeStatut::NON_LIVRE)
 {
 }

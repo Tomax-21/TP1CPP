@@ -16,7 +16,8 @@ public:
 	Magasin();
 	
 	
-	Magasin(const std::vector<Client>& clients,const std::vector<Product>& products, const std::vector<Commande>& commandes);
+	Magasin(const std::vector<Client>& clients, const std::vector<Product>& products, const std::vector<Commande>& commandes);
+	Magasin(const std::vector<Client>& clients,const std::vector<Product>& products);
 	
 	
 

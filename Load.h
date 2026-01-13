@@ -5,6 +5,6 @@
 
 std::vector<Client> LoadClient();
 std::vector<Product> LoadProduct();
-std::vector<Commande> LoadCommande();
+std::vector<Commande> LoadCommande(Magasin& magasin);
 
 Magasin LoadAll();
