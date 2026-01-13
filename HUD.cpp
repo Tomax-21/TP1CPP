@@ -156,6 +156,61 @@ void menu2(Magasin& magasin) {
 	} while (choix != "exit");
 }
 
+void menu3(Magasin& magasin)
+{
+	std::cout << "Que souhaitez vous faire ?" << std::endl;
+	std::string choix;
+
+	do {
+		std::cout << "1 : Afficher toutes les commandes" << std::endl;
+		std::cout << "2 : Afficher une commande" << std::endl;
+		std::cout << "3 : Creer une nouvelle commande" << std::endl;
+		std::cout << "4 : Modifier le statut d'une commande" << std::endl;
+
+		do {
+			std::getline(std::cin, choix);
+			if (choix != "1" && choix != "2" && choix != "3" && choix != "4" && choix != "exit") {
+				std::cout << "Choix incorrect, votre choix doit etre un chiffre entre 1 et 2" << std::endl;
+			}
+		} while (choix != "1" && choix != "2" && choix != "3" && choix != "4" && choix != "exit");
+
+		if (choix == "1") {
+			show_all_commandes_hud(magasin);
+		}
+		if (choix == "2") {
+			
+		}
+
+		if (choix == "3") {
+			create_commande_hud(magasin);
+		}
+	} while (choix != "exit");
+	
+}
+void create_commande_hud(Magasin& magasin) {
+	std::string client_name;
+	std::cout << "Selectionner un client, quel est son nom ? : ";
+	std::getline(std::cin, client_name);
+
+	try {
+		Client client = magasin.getClientByName(client_name);
+		Commande commande = Commande(client);
+
+		std::vector<Product> panier = client.panier();
+		for (Product produit : panier) {
+			commande.addProduct(produit);
+		}
+
+		magasin.addNewOrder(commande);
+
+		std::cout << "Commande crée avec succes" << std::endl;
+	}
+	catch (std::runtime_error e) {
+		std::cout << "Client introuvale" << e.what() << std::endl;
+	}
+
+
+}
 
 void manage_panier_client(Magasin& magasin) {
 	std::string client_name;

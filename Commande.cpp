@@ -25,6 +25,10 @@ Commande::Commande(const Client& client, const CommandeStatut statut):id_(genera
 {
 }
 
+Commande::Commande(const Client& client) :id_(generate_random_product_id()), client_(client), statut_(CommandeStatut::NON_LIVRE)
+{
+}
+
 void Commande::setStatut(const CommandeStatut& statut)
 {
     statut_ = statut;

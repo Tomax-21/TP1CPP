@@ -15,6 +15,7 @@ private :
 
 public:
 	Commande(const Client& client, const CommandeStatut statut);
+	Commande(const Client& client);
 	friend std::ostream& operator<<(std::ostream& os, const Commande& commande);
 
 	void setStatut(const CommandeStatut& statut);
