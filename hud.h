@@ -6,7 +6,10 @@ void hud(Magasin& magasin);
 void menu1(Magasin& magasin);
 void menu2(Magasin& magasin);
 
-void menu1_2(Magasin& magasin);
-void menu1_4(Magasin& magasin);
+void create_client_hud(Magasin& magasin);
+void add_product_hud(Magasin& magasin);
 
-void menu2_2(Magasin& magasin);
+void research_client_hud(Magasin& magasin);
+void show_all_clients_hud(Magasin& magasin);
+void show_all_products_hud(Magasin& magasin);
+void show_all_commandes_hud(Magasin& magasin);

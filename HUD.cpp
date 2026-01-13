@@ -60,19 +60,19 @@ void menu1(Magasin& magasin) {
 		} while (choix != "1" && choix != "2" && choix != "3" && choix != "4" && choix != "5" && choix != "6" && choix != "exit");
 
 		if (choix == "1") {
-			std::cout << magasin.getClients() << std::endl;
+			show_all_clients_hud(magasin);
 		}
 		if (choix == "2") {
-			menu1_2(magasin);
+			create_client_hud(magasin);
 		}
 		if (choix == "3") {
-			std::cout << magasin.products() << std::endl;
+			show_all_products_hud(magasin);
 		}
 		if (choix == "4") {
-			menu1_4(magasin);
+			add_product_hud(magasin);
 		}
 		if (choix == "6") {
-			std::cout << magasin.getCommandes() << std::endl;
+			show_all_commandes_hud(magasin);
 		}
 	} while (choix != "exit");
 
@@ -80,7 +80,7 @@ void menu1(Magasin& magasin) {
 
 }
 
-void menu1_2(Magasin& magasin) {
+void create_client_hud(Magasin& magasin) {
 	std::string prenom;
 	std::string nom;
 	std::cout << "Entrez le prenom du client : ";
@@ -93,7 +93,7 @@ void menu1_2(Magasin& magasin) {
 
 	magasin.addNewClient(client);
 }
-void menu1_4(Magasin& magasin) {
+void add_product_hud(Magasin& magasin) {
 	//std::string const& title, std::string const& description, int const& quantity, float const& unit_price)
 	std::string name;
 	std::string desc;
@@ -133,18 +133,28 @@ void menu2(Magasin& magasin) {
 		} while (choix != "1" && choix != "2" && choix != "3" && choix != "4" && choix != "5" && choix != "exit");
 
 		if (choix == "1") {
-			std::cout << magasin.getClients() << std::endl;
+			show_all_clients_hud(magasin);
 		}
 		if (choix == "2") {
-			menu2_2(magasin);
+			research_client_hud(magasin);
 		}
 
 
 	} while (choix != "exit");
 }
 
+void show_all_products_hud(Magasin& magasin) {
+	std::cout << magasin.products() << std::endl;
+}
 
-void menu2_2(Magasin& magasin) {
+void show_all_commandes_hud(Magasin& magasin) {
+	std::cout << magasin.getCommandes() << std::endl;
+}
+
+void show_all_clients_hud(Magasin& magasin) {
+	std::cout << magasin.getClients() << std::endl;
+}
+void research_client_hud(Magasin& magasin) {
 	// afficher un client precis
 	std::string val;
 	std::string choix;
