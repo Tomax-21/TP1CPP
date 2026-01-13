@@ -27,3 +27,4 @@ void delete_client_hud(Magasin& magasin);
 void add_product_to_card_hud(Magasin& magasin, Client& client);
 void show_client_cart_hud(Client& client);
 void remove_product_to_card_hud(Magasin& magasin, Client& client);
+void modify_quantity_product_cart_client_hud(Magasin& magasin, Client& client);
