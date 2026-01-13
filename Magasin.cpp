@@ -192,6 +192,13 @@ void show_clients(Magasin& magasin)
 	}
 }
 
+void update_clients(Magasin& magasin, Client& client, std::string new_name, std::string new_surname)
+{
+	Client& client_magasin = magasin.getClientById(client.getId());
+	client_magasin.setName(new_name);
+	client_magasin.setPrenom(new_surname);
+}
+
 void updateProductQuantityByName(Magasin& magasin, std::string const& product_name, int const& quantity)
 {
 	// return true si le produit existe, false sinon

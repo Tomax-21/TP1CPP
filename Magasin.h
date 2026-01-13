@@ -62,4 +62,6 @@ std::ostream& operator<<(std::ostream& os, std::vector<Client> const& client);
 std::ostream& operator<<(std::ostream& os, std::vector<Commande> const& commande);
 
 void show_clients(Magasin& magasin);
+void update_clients(Magasin& magasin, Client& client, std::string new_name, std::string new_surname);
+
 void show_commande(Magasin& magasin);

@@ -128,21 +128,27 @@ void menu2(Magasin& magasin) {
 		std::cout << "3 : Ajouter un client ?" << std::endl;
 		std::cout << "4 : Modifier un client ?" << std::endl;
 		std::cout << "5 : Supprimer un client ?" << std::endl;
+		std::cout << "6 : Ajouter un produit au panier du client ?" << std::endl;
+		std::cout << "7 : Supprimer un produit au panier du client ? " << std::endl;
+		std::cout << "8 : Afficher le panier d'un client" << std::endl;
 
 
 		do {
-			//std::cin >> choix;
 			std::getline(std::cin, choix);
-			if (choix != "1" && choix != "2" && choix != "3" && choix != "4" && choix != "5" && choix != "exit") {
-				std::cout << "Choix incorrect, votre choix doit se situer etre un chiffre entre 1 et 5" << std::endl;
+			if (choix != "1" && choix != "2" && choix != "3" && choix != "4" && choix != "5" && choix != "6" && choix != "7" && choix != "8" && choix != "exit") {
+				std::cout << "Choix incorrect, votre choix doit etre un chiffre entre 1 et 8" << std::endl;
 			}
-		} while (choix != "1" && choix != "2" && choix != "3" && choix != "4" && choix != "5" && choix != "exit");
+		} while (choix != "1" && choix != "2" && choix != "3" && choix != "4" && choix != "5" && choix != "6" && choix != "7" && choix != "8" && choix != "exit");
 
 		if (choix == "1") {
 			show_all_clients_hud(magasin);
 		}
 		if (choix == "2") {
 			research_client_hud(magasin);
+		} if (choix == "3") {
+			create_client_hud(magasin);
+		} if (choix == "4") {
+			modify_client_hud(magasin);
 		}
 
 	} while (choix != "exit");
@@ -225,4 +231,31 @@ void show_product(Magasin& magasin)
 		std::cout << "produit non trouve : " << nom << std::endl;
 	}
 	
+}
+
+void modify_client_hud(Magasin& magasin)
+{
+	std::string current_name;
+	std::string new_name;
+	std::string new_surname;
+
+
+	std::cout << "Modifier un client" << std::endl;
+	std::cout << "Quelle est son nom ? : ";
+	std::getline(std::cin, current_name);
+
+	try {
+		Client client = magasin.getClientByName(current_name);
+
+		std::cout << "Ancien nom : " << client.getName() << " Nouveau nom : ";
+		std::getline(std::cin, new_name);
+		std::cout << "Ancien prenom : " << client.getSurname() << " Nouveau prenom : ";
+		std::getline(std::cin, new_surname);
+
+		update_clients(magasin, client, new_name, new_surname);
+	}
+	catch (std::runtime_error& e) {
+		std::cout << "Client introuvable";
+	}
+
 }

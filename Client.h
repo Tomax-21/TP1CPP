@@ -31,6 +31,9 @@ public:
 	std::string getSurname() const;
 	int getId() const;
 
+	void setName(std::string name);
+	void setPrenom(std::string prenom);
+
 
 
 };

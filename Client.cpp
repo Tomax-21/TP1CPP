@@ -66,6 +66,16 @@ int Client::getId() const
 	return id_;
 }
 
+void Client::setName(std::string name)
+{
+	nom_ = name;
+}
+
+void Client::setPrenom(std::string prenom)
+{
+	prenom_ = prenom;
+}
+
 std::string Client::getSurname() const
 {
 	return prenom_;
