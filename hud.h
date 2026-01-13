@@ -13,3 +13,6 @@ void research_client_hud(Magasin& magasin);
 void show_all_clients_hud(Magasin& magasin);
 void show_all_products_hud(Magasin& magasin);
 void show_all_commandes_hud(Magasin& magasin);
+
+void modify_product_quantity_hud(Magasin& magasin);
+void show_product(Magasin& magasin);
