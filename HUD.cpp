@@ -2,6 +2,8 @@
 #include <string>
 #include "Magasin.h"
 #include "HUD.h"
+#include "Save.h"
+
 
 void hud(Magasin& magasin) {
 	std::cout << "Bienvenue dans le systeme de management" << std::endl;
@@ -32,6 +34,7 @@ void hud(Magasin& magasin) {
 	if (choix == "3") {
 		menu3(magasin);
 	}
+	SaveAll(magasin);
 
 	} while (choix != "exit");
 }
@@ -76,6 +79,7 @@ void menu1(Magasin& magasin) {
 		if (choix == "6") {
 			show_all_commandes_hud(magasin);
 		}
+		SaveAll(magasin);
 	} while (choix != "exit");
 
 
@@ -155,6 +159,7 @@ void menu2(Magasin& magasin) {
 		} if (choix == "6") {
 			manage_panier_client(magasin);
 		}
+		SaveAll(magasin);
 
 
 	} while (choix != "exit");
@@ -194,6 +199,8 @@ void menu3(Magasin& magasin)
 		if (choix == "5") {
 			valider_commande_hud(magasin);
 		}
+		SaveAll(magasin);
+
 	} while (choix != "exit");
 	
 }

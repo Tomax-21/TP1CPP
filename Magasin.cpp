@@ -5,6 +5,11 @@ Magasin::Magasin() :
 {
 }
 
+Magasin::Magasin(const std::vector<Client>& clients, const std::vector<Product>& products, const std::vector<Commande>& commandes):
+	clients_(clients), products_(products), orders_(commandes)
+{
+}
+
 std::vector<Product> Magasin::products() const
 {
 	return products_;

@@ -14,6 +14,12 @@ private:
 	std::vector<Commande> orders_;
 public:
 	Magasin();
+	
+	
+	Magasin(const std::vector<Client>& clients,const std::vector<Product>& products, const std::vector<Commande>& commandes);
+	
+	
+
 	std::vector<Product> products() const;
 	Product& getProductByName(std::string const& product_name);
 
