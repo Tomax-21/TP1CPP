@@ -2,6 +2,11 @@
 
 
 
+Product::Product(const unsigned int& id, std::string const& title, std::string const& description, int const& quantity, float const& unit_price):
+id_(id), title_(title), description_(description), quantity_(quantity), unit_price_(unit_price)
+{
+}
+
 Product::Product(std::string const& title, std::string const& description, int const& quantity, float const& unit_price):
 	id_(generate_random_product_id()), title_(title), description_(description), quantity_(quantity), unit_price_(unit_price)
 {

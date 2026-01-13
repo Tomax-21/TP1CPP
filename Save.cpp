@@ -17,6 +17,9 @@ void SaveClient(std::vector<Client> clients)
 		}
 	}
 
+	ClientsFile.close();
+	ClientPanierFile.close();
+
 }
 
 void SaveProduct(std::vector<Product> products)
@@ -26,6 +29,8 @@ void SaveProduct(std::vector<Product> products)
 	for (Product& product : products) {
 		ProductsFile << product.id() << ";" << product.title() << ";" << product.description() << ";" << product.quantity() << ";" << product.unit_price() << std::endl;
 	}
+
+	ProductsFile.close();
 }
 
 void SaveCommande(std::vector<Commande> commandes)
@@ -39,6 +44,9 @@ void SaveCommande(std::vector<Commande> commandes)
 			CommandeProductsFile << commande.id() << ";" << product.id() << ";" << product.title() << ";" << product.description() << ";" << product.quantity() << ";" << product.unit_price() << std::endl;
 		}
 	}
+
+	CommandesFile.close();
+	CommandeProductsFile.close();
 }
 
 

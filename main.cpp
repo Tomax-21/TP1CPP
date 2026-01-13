@@ -1,12 +1,13 @@
 #include <iostream>
 #include "Magasin.h"
 #include "hud.h"
+#include "Load.h"
 int main() {
 
 	srand((unsigned int)time(0));
 
 
-	Magasin magasin = Magasin();
+	Magasin magasin = LoadAll();
 
 
 	//Product produit1 = Product("PS4", "Console de jeu de la marque Sony", 5, 124.4);

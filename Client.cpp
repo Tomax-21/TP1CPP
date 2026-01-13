@@ -26,6 +26,11 @@ Client::Client(std::string const& prenom, std::string const& nom):
 {
 }
 
+Client::Client(const int& id, std::string const& prenom, std::string const& nom, const std::vector<Product>& panier) :
+	id_(id), prenom_(prenom), nom_(nom), panier_(panier)
+{
+}
+
 void Client::addProductToPanier(Product const& produit)
 {
 	panier_.push_back(produit);

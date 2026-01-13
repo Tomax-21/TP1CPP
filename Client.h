@@ -16,6 +16,7 @@ private:
 
 public:
 	Client(std::string const& prenom, std::string const& nom);
+	Client(const int& id, std::string const& prenom, std::string const& nom, const std::vector<Product>& panier);
 
 	void addProductToPanier(Product const& produit);
 

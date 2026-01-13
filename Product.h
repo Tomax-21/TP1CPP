@@ -14,6 +14,7 @@ private:
 
 
 public:
+	Product(const unsigned int& id, std::string const& title, std::string const& description, int const& quantity, float const& unit_price);
 	Product(std::string const& title, std::string const& description, int const& quantity, float const& unit_price);
 
 	long int id() const;
