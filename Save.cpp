@@ -28,6 +28,20 @@ void SaveProduct(std::vector<Product> products)
 	}
 }
 
+void SaveCommande(std::vector<Commande> commandes)
+{
+	std::ofstream CommandesFile("Commandes.csv");
+	std::ofstream CommandeProductsFile("ProductsCommande.csv");
+
+	for (Commande& commande : commandes) {
+		CommandesFile << commande.id() << ";" << commande.client().getId() << ";" << commande.string_statut() << std::endl;
+		for (Product& product : commande.produits()) {
+			CommandeProductsFile << commande.id() << ";" << product.id() << ";" << product.title() << ";" << product.description() << ";" << product.quantity() << ";" << product.unit_price() << std::endl;
+		}
+	}
+}
+
+
 void SaveAll(Magasin& magasin)
 {
 	SaveClient(magasin.getClients());

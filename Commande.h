@@ -24,4 +24,7 @@ public:
 	Client client();
 	unsigned int id();
 	CommandeStatut statut();
+	std::vector<Product> produits();
+
+	std::string string_statut();
 };

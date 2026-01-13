@@ -54,3 +54,18 @@ CommandeStatut Commande::statut()
 {
     return statut_;
 }
+
+std::vector<Product> Commande::produits()
+{
+    return produits_;
+}
+
+std::string Commande::string_statut()
+{
+    if (statut_ == CommandeStatut::LIVRE) {
+        return "Livre";
+    }
+    else {
+        return "Non livre";
+    }
+}
