@@ -5,10 +5,9 @@
 #include <vector>
 #include <string>
 
-const std::vector<Client>& LoadClient()
+std::vector<Client> LoadClient()
 {
 	std::vector<Client> clients;
-	std::vector<Product> panier;
 
 	std::ifstream ClientsFile("Clients.csv");
 	std::ifstream ClientPanierFile("ClientPanier.csv");
@@ -22,8 +21,14 @@ const std::vector<Client>& LoadClient()
 		std::getline(ss, name, ';');
 		std::getline(ss, surname, ';');
 
+		std::vector<Product> panier;
+
+		ClientPanierFile.clear(); // il faut recommencer la lecture du fichier
+		ClientPanierFile.seekg(0);
+
 		while (std::getline(ClientPanierFile, ligne2)) {
-			std::stringstream ss2(ligne);
+
+			std::stringstream ss2(ligne2);
 			std::string idClient, idProduct, nameProduct, descProduct, quantity, unit_price;
 			
 			std::getline(ss2, idClient, ';');
@@ -41,17 +46,37 @@ const std::vector<Client>& LoadClient()
 		clients.push_back(Client(stoi(id), name, surname, panier));
 	}
 
-	
-		
 	return clients;
 }
 
-const std::vector<Product>& LoadProduct()
+std::vector<Product> LoadProduct()
 {
-	return std::vector<Product>();
+
+	std::vector<Product> products;
+	std::ifstream ProductsFile("Products.csv");
+
+	std::string ligne, ligne2;
+	while (std::getline(ProductsFile, ligne)) {
+		std::stringstream ss(ligne);
+		std::string id, name, desc, quant, price;
+
+		std::getline(ss, id, ';');
+		std::getline(ss, name, ';');
+		std::getline(ss, desc, ';');
+		std::getline(ss, quant, ';');
+		std::getline(ss, price, ';');
+
+		products.push_back(Product(stoi(id), name, desc, stoi(quant), stof(price)));
+	}
+
+	ProductsFile.close();
+
+	return products;
 }
 
-const std::vector<Commande>& LoadCommande()
+
+
+std::vector<Commande> LoadCommande()
 {
 	return std::vector<Commande>();
 }

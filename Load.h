@@ -3,8 +3,8 @@
 
 
 
-const std::vector<Client>& LoadClient();
-const std::vector<Product>& LoadProduct();
-const std::vector<Commande>& LoadCommande();
+std::vector<Client> LoadClient();
+std::vector<Product> LoadProduct();
+std::vector<Commande> LoadCommande();
 
 Magasin LoadAll();
